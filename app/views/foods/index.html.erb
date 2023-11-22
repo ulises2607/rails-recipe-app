@@ -1,0 +1,37 @@
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+  <div class="text-end my-5">
+    <button class="btn_bottom_border"><%= link_to "New food", new_food_path, class: "text-decoration-none text-dark"%></button>
+  </div>
+
+  <div id="foods" class="mx-5">
+    <table class="table table-striped rounded-table m-0">
+      <thead>
+        <tr>
+          <th scope="col">
+            <span>Food</span>
+            <span><i class="fa fa-caret-up" aria-hidden="true"></i></span>
+          </th>
+          <th scope="col">Measurement unit</th>
+          <th scope="col">Unit price</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @foods.each do |food| %>
+          <tr>
+            <td><%= food.name %></td>
+            <td><%= food.unit %></td>
+            <td>$<%= food.price %></td>
+            <td>
+            <div class="d-flex action_delete">
+              <%= link_to "Edit this food", edit_food_path(food.id) %>&nbsp;|&nbsp;
+              <%= button_to "Delete", food, method: :delete, class: "border border-0 text-decoration-underline text-primary" %>
+            </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
