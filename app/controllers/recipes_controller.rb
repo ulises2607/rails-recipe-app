@@ -8,6 +8,12 @@ class RecipesController < ApplicationController
   end
 
   def show
+
+    unless @recipe.public || current_user == @recipe.user
+      redirect_to root_path, alert: 'You cannot access it.'
+      return
+    end
+    @recipe_foods = @recipe.recipe_food
   end
 
   def new
