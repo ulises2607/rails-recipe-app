@@ -1,1 +1,17 @@
-<h2> Recipes details </h2>
+<h2 class="d-flex justify-content-center"> <%= @recipe.name %> </h2>
+
+<div class= "recipe-details-container d-flex justify-content-around">
+    <div class= "recipe-details">
+        <p>Preparation time:  <%= @recipe.preparation_time %> minutes</p>
+        <p>Cooking time:  <%= @recipe.cooking_time %> minutes </p>
+        <p>Description:  <%= @recipe.description %> </p>
+        <p>Category:  <%= @recipe.user_id %> </p>
+    </div>
+    <div class= "recipe-ingredients">
+          <% if @recipe.public %>
+            <%= button_to 'Public', recipe_path(@recipe), method: :put %>
+          <% else %>
+            <%= button_to 'Private', recipe_path(@recipe), method: :put %>
+          <% end %>
+    </div>
+</div>
