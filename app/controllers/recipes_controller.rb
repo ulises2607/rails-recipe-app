@@ -32,7 +32,7 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe.toggle!(:public) # Utiliza toggle! para cambiar el valor de public
+    @recipe.toggle!(:public)
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
