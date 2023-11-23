@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
-    before_action :find_recipe, only: %i[show destroy update]
-    before_action :authenticate_user!, except: %i[index show]
+  before_action :find_recipe, only: %i[show destroy update]
+  before_action :authenticate_user!, except: %i[index show]
 
   def index
     @recipes = Recipe.all.where(user_id: current_user.id)
@@ -8,7 +8,6 @@ class RecipesController < ApplicationController
   end
 
   def show
-
     unless @recipe.public || current_user == @recipe.user
       redirect_to root_path, alert: 'You cannot access it.'
       return
@@ -21,15 +20,14 @@ class RecipesController < ApplicationController
   end
 
   def create
-        @recipe = Recipe.new(recipe_params)
-        @recipe.user = current_user
-        puts params.inspect
-        if @recipe.save
-            redirect_to recipe_path(@recipe)
-        else
-            render :new
-        end
-    
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
+    puts params.inspect
+    if @recipe.save
+      redirect_to recipe_path(@recipe)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -53,7 +51,7 @@ class RecipesController < ApplicationController
 
   def find_recipe
     @recipe = Recipe.find_by_id(params[:id])
-    end
+  end
 
   def recipe_params
     params.require(:recipe).permit(

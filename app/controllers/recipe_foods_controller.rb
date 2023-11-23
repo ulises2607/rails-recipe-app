@@ -15,7 +15,7 @@ class RecipeFoodsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @foods = @user.food
     @recipe_food = @recipe.recipe_food.build
-    
+
     @ingredients = @foods.map { |food| ["#{food.name} in #{food.unit}", food.id] }
   end
 
