@@ -1,0 +1,17 @@
+<h1>Recipes</h1>
+
+<% @recipes.each do |recipe| %>
+  <div class="card mb-3 d-flex justify-content-between">
+    <div class="card-header ">
+      <h2><%= link_to recipe.name, recipe %></h2>
+      <div>
+        <%= form_with(model: recipe, method: :delete, local: true) do |form| %>
+          <%= form.submit 'Delete', class: 'btn btn-outline-danger' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="recipe-description">
+      <p><%= recipe.description %></p>
+    </div>
+  </div>
+<% end %>
