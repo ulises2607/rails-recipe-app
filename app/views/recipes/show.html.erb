@@ -21,7 +21,7 @@
     </div>
 
     <div class="d-flex">
-    <%= link_to "Add ingredient", new_food_path, class: "btn btn-primary" %>
+    <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), method: :get, class: "btn btn-primary" %>
     </div>
 </div>
 
@@ -35,8 +35,8 @@
         <span>Food</span>
         <span><i class="fa fa-caret-up" aria-hidden="true"></i></span>
         </th>
-        <th scope="col">Measurement unit</th>
-        <th scope="col">Unit price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Value</th>
         <th scope="col">Actions</th>
     </tr>
     </thead>
@@ -48,8 +48,10 @@
         <td>$<%= recipe_food.food.price %></td>
         <td>
         <div class="d-flex action_delete">
-            <%= link_to "Edit this food", edit_food_path(recipe_food.food_id) %>&nbsp;|&nbsp;
-            <%= button_to "Delete", recipe_food.food, method: :delete, class: "border border-0 text-decoration-underline text-primary" %>
+            <% if recipe_food.food.user_id == current_user.id%>
+                <%= link_to "Edit this food", edit_food_path(recipe_food.food_id) %>&nbsp;|&nbsp;
+                <%= button_to "Delete", [@recipe, recipe_food], method: :delete, class: "border border-0 text-decoration-underline text-primary" %>
+            <% end %>
         </div>
         </td>
         </tr>
