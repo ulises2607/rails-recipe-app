@@ -3,7 +3,8 @@ class RecipesController < ApplicationController
     before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.where(user_id: current_user.id)
+    puts "El usuario es #{current_user.id}"
   end
 
   def show
