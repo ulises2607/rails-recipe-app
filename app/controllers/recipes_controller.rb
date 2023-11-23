@@ -1,6 +1,5 @@
 class RecipesController < ApplicationController
-    before_action :authenticate_user!
-
+  before_action :authenticate_user!
 
   def index
     @recipes = Recipe.all.where(user_id: current_user.id)
@@ -39,5 +38,4 @@ class RecipesController < ApplicationController
       :user_id
     )
   end
-
 end
