@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: %i[show destroy update]
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!
 
   def index
     @recipes = Recipe.all.where(user_id: current_user.id)

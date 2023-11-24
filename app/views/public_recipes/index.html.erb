@@ -1,0 +1,22 @@
+<h1 class="d-flex justify-content-center"> Public recipes </h1>
+<body class="d-flex flex-column justify-content-center">
+
+    <% @public_recipes.each do |public_recipe| %>
+    <div class="container d-flex justify-content-around border m-5" >
+        <div class="pub-rec-container" >
+        
+            <h2> <%= public_recipe.name %> </h2>
+            <p>by <%= public_recipe.user.name %> </p>
+            
+        </div>
+        <div>
+            <p> Total food items: </p>
+            <p> Total price: </p>
+        </div>
+
+    </div>
+    <% end %>
+</body>
+
+
+
