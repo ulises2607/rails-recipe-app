@@ -1,0 +1,22 @@
+<% total = [] %>
+<table class='shopping_list_table'>
+  <tr>
+    <th>Food</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </tr>
+  <% elements_to_buy.each do |element| %>
+    <tr>
+      <td><%= element.name %></td>
+      <td><%= element.quantity %> <%= element.unit %></td>
+      <td>$<%= price = element.price.to_i * element.quantity.to_i %></td>
+      <% total << price %>
+    </tr>
+  <% end %>
+</table>
+<p>
+  <strong>Amount of items to buy: </strong>
+  <%= total.length %>
+  <strong>Total value of food needed: </strong>
+   $<%= total.sum %>
+</p>
