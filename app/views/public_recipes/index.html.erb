@@ -5,7 +5,7 @@
     <div class="container d-flex justify-content-around border m-5" >
         <div class="pub-rec-container" >
         
-            <h2> <%= public_recipe.name %> </h2>
+            <h2> <%= link_to public_recipe.name, public_recipe  %> </h2>
             <p>by <%= public_recipe.user.name %> </p>
             
         </div>

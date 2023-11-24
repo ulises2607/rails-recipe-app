@@ -48,7 +48,7 @@
         <td>$<%= recipe_food.food.price %></td>
         <td>
         <div class="d-flex action_delete">
-            <% if recipe_food.food.user_id == current_user.id%>
+            <% if recipe_food.recipe.user_id == current_user.id%>
                 <%= link_to "Edit this food", edit_food_path(recipe_food.food_id) %>&nbsp;|&nbsp;
                 <%= button_to "Delete", [@recipe, recipe_food], method: :delete, class: "border border-0 text-decoration-underline text-primary" %>
             <% end %>
