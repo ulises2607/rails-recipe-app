@@ -11,6 +11,6 @@ class Recipe < ApplicationRecord
   def count_recipe_foods
     count = recipe_food.count
     sum_price = food.sum(:price)
-    { count: count, sum_price: sum_price }
+    { count:, sum_price: }
   end
 end
