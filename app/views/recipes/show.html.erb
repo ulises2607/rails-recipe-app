@@ -1,1 +1,61 @@
-<h2> Recipes details </h2>
+<h2 class="d-flex justify-content-center"> <%= @recipe.name %> </h2>
+
+<div class= "recipe-details-container d-flex justify-content-around">
+    <div class= "recipe-details">
+        <p>Preparation time:  <%= @recipe.preparation_time %> minutes</p>
+        <p>Cooking time:  <%= @recipe.cooking_time %> minutes </p>
+        <p>Description:  <%= @recipe.description %> </p>
+    </div>
+    <div class= "recipe-ingredients">
+          <% if @recipe.public %>
+            <%= button_to 'Public', recipe_path(@recipe), method: :put %>
+          <% else %>
+            <%= button_to 'Private', recipe_path(@recipe), method: :put %>
+          <% end %>
+    </div>
+</div>
+
+<div class="btn-option-container d-flex justify-content-around">
+    <div class="d-flex">
+    <%= link_to "Generate shopping list", new_food_path, class: "btn btn-primary" %>
+    </div>
+
+    <div class="d-flex">
+    <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), method: :get, class: "btn btn-primary" %>
+    </div>
+</div>
+
+
+
+<div id="foods" class="mx-5">
+<table class="table table-striped rounded-table m-0">
+    <thead>
+    <tr>
+        <th scope="col">
+        <span>Food</span>
+        <span><i class="fa fa-caret-up" aria-hidden="true"></i></span>
+        </th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Value</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @recipe_foods.each do |recipe_food| %>
+        <tr>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.quantity %></td>
+        <td>$<%= recipe_food.food.price %></td>
+        <td>
+        <div class="d-flex action_delete">
+            <% if recipe_food.food.user_id == current_user.id%>
+                <%= link_to "Edit this food", edit_food_path(recipe_food.food_id) %>&nbsp;|&nbsp;
+                <%= button_to "Delete", [@recipe, recipe_food], method: :delete, class: "border border-0 text-decoration-underline text-primary" %>
+            <% end %>
+        </div>
+        </td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+</div> 
