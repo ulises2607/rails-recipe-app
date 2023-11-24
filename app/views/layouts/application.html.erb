@@ -14,6 +14,7 @@
   </head>
 
   <body>
+    <%= render "navigation/navbar" %>
     <% if user_signed_in? %>
       <p>Welcome, <%= current_user.name %></p>
       <p>Email: <%= current_user.email %></p>
