@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :food, dependent: :destroy
   has_many :recipe, dependent: :destroy
+
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
+  
 end
