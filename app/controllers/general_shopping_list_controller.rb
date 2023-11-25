@@ -9,6 +9,6 @@ class GeneralShoppingListController < ApplicationController
       end
     end
     foods_in_recipes_ids = @recipe_foods.map(&:food_id).uniq
-    @missing_foods = @foods.where.not(id: foods_in_recipes_ids)
+    @missing_foods = @foods.includes(:recipe_foods).where.not(id: foods_in_recipes_ids)
   end
 end

@@ -1,9 +1,9 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: %i[show edit update destroy]
-  before_action :authenticate_user! # Add this line if you want to authenticate users
+  before_action :authenticate_user!
 
   def index
-    @foods = current_user.food
+    @foods = current_user.food.includes(:recipe_foods)
   end
 
   def show; end
