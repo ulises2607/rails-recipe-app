@@ -1,39 +1,40 @@
 <ul class="nav nav-underline navbar-dark bg-dark">
-<%= link_to 'Recipe App', root_path, class:"navbar-brand" %>
-   <% if user_signed_in? %>
-  <li class="nav-item">
-     <%= form_with(url: destroy_user_session_path, method: :delete, local: false) do |form| %>
-                <button type="submit" class="nav-link">
-                Logout
-                </button>
-            <% end %>
-  </li>
-  <%# public recipes %>
-  <li class="nav-item">
-    <%= link_to "Public Recipes", public_recipes_path, class:"nav-link" %>
-  </li>
-  <%# my recipes %>
-  <li class="nav-item">
-    <%= link_to "My Recipes", recipes_path, method: :delete, class:"nav-link" %>
-  </li>
-  <%# add recipe %>
-   <li class="nav-item">
-      <%= link_to "New Recipe", new_recipe_path, method: :delete, class:"nav-link" %>
+  <div class="d-flex align-items-center">
+    <%= link_to 'Recipe App', root_path, class:"navbar-brand" %>
+  </div>
+
+  <% if user_signed_in? %>
+    <li class="nav-item">
+      <%= form_with(url: destroy_user_session_path, method: :delete, local: false) do |form| %>
+        <button type="submit" class="nav-link">Logout</button>
+      <% end %>
     </li>
-  <%# foods %>
-  <li class="nav-item">
-    <%= link_to "Food", foods_path, class:"nav-link" %>
-  </li>
-  <%# add foods %>
-   <li class="nav-item">
-       <%= link_to "Add Food", new_food_path, class:"nav-link" %>
-  </li>
-    <% else %>
-  <li class="nav-item">
-    <%= link_to "Sign Up/In", new_user_session_path, class:"nav-link" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Public Recipes", public_recipes_path, class:"nav-link" %>
-  </li>
-    <% end %>
+    <%# public recipes %>
+    <li class="nav-item">
+      <%= link_to "Public Recipes", public_recipes_path, class:"nav-link" %>
+    </li>
+    <%# my recipes %>
+    <li class="nav-item">
+      <%= link_to "My Recipes", recipes_path, method: :delete, class:"nav-link" %>
+    </li>
+    <%# add recipe %>
+    <li class="nav-item">
+        <%= link_to "New Recipe", new_recipe_path, method: :delete, class:"nav-link" %>
+      </li>
+    <%# foods %>
+    <li class="nav-item">
+      <%= link_to "Food", foods_path, class:"nav-link" %>
+    </li>
+    <%# add foods %>
+    <li class="nav-item">
+        <%= link_to "Add Food", new_food_path, class:"nav-link" %>
+    </li>
+      <% else %>
+    <li class="nav-item">
+      <%= link_to "Sign Up/In", new_user_session_path, class:"nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Public Recipes", public_recipes_path, class:"nav-link" %>
+    </li>
+  <% end %>
 </ul>
