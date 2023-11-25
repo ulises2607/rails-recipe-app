@@ -10,8 +10,8 @@
             
         </div>
         <div>
-            <p> Total food items: </p>
-            <p> Total price: </p>
+            <p> Total food items: <%= public_recipe.count_recipe_foods[:count] %></p>
+            <p> Total price: <%= public_recipe.count_recipe_foods[:sum_price] %></p>
         </div>
 
     </div>
