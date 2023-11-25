@@ -1,0 +1,10 @@
+<section class='shopping_list_container'>
+  <h1>General shopping list</h1>
+  <% elements_to_buy = [] %>
+
+  <% if @missing_foods.length > 0 %>
+    <%= render 'list', elements_to_buy: @missing_foods %>
+  <% else %>
+    <h4>You have everything you need to cook this recipe :-)</h4>
+  <% end %>
+</section>

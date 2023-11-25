@@ -1,0 +1,83 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  margin: 25px;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+body {
+  padding: 15px;
+
+  #foods {
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    border: 1px solid black;
+    padding: 8px;
+  }
+
+  td + td {
+    border-left: 1px solid black;
+  }
+
+  .btn_bottom_border a {
+    text-decoration: none;
+  }
+
+  .btn_bottom_border {
+    background-color: white;
+    border-bottom: 4px solid black;
+    color: black;
+  }
+
+  .recipes_head button {
+    border: none;
+    color: #0d6efd;
+    text-decoration: underline;
+  }
+
+  .action_delete button {
+    border: none;
+    color: #0d6efd;
+    text-decoration: underline;
+  }
+}
+
+.recipes_head h2,
+p {
+  color: black;
+}
+
+.recipes_head {
+  text-decoration: none;
+}
+
+input {
+  width: 100%;
+}
+
+label {
+  text-align: left;
+}
+
+.checkbox {
+  display: flex;
+}
