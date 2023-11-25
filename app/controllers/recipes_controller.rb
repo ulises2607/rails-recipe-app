@@ -20,13 +20,17 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
-    @recipe.user = current_user
-    puts params.inspect
-    if @recipe.save
-      redirect_to recipe_path(@recipe)
-    else
-      render :new
+    @recipe = current_user.recipe.new(recipe_params)
+    puts "Recipe Parameters: #{recipe_params.inspect}"
+    respond_to do |format|
+      if @recipe.save
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
+        format.json { render :show, status: :created, location: @recipe }
+      else
+        puts @recipe.errors.full_messages
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
     end
   end
 
