@@ -5,7 +5,7 @@ class FoodsController < ApplicationController
   # GET /foods or /foods.json
   def index
     # @foods = Food.all
-    @foods = current_user.food
+    @foods = current_user.food.includes(:recipe_foods)
   end
 
   # GET /foods/1 or /foods/1.json
