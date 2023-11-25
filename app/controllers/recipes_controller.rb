@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @recipes = Recipe.all.where(user_id: current_user.id)
+    @recipes = Recipe.includes(:user).where(user_id: current_user.id)
     puts "El usuario es #{current_user.id}"
   end
 
