@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { FactoryBot.create(:user) }
+
+  before { subject.save }
+
+  it 'validity' do
+    expect(subject).to be_valid
+  end
 end
