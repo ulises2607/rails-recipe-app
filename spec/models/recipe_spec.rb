@@ -48,5 +48,4 @@ RSpec.describe Recipe, type: :model do
     subject.cooking_time = 'abc'
     expect(subject).not_to be_valid
   end
-
 end

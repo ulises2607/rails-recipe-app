@@ -8,5 +8,4 @@ class Recipe < ApplicationRecord
   validates :description, presence: true
   validates :public, presence: true, inclusion: { in: [true, false] }
   validates :user_id, presence: true
-
 end
