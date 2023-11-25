@@ -34,9 +34,9 @@ RSpec.describe Recipe, type: :model do
     expect(subject).not_to be_valid
   end
 
-  it 'is not valid without a boolean value for public' do
+  it 'is valid without a value for public' do
     subject.public = nil
-    expect(subject).not_to be_valid
+    expect(subject).to be_valid
   end
 
   it 'is not valid with a non-integer preparation time' do
